@@ -4,7 +4,3 @@ class Input
     page_title = gets
   end
 end
-
-class InterfaceMachine
-  puts Input.new.get_input
-end
