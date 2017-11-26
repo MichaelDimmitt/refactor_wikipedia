@@ -3,9 +3,12 @@ require 'HTTParty'
 require 'mechanize'
 
 require_relative 'input.rb'
+require_relative 'error_handling.rb'
 
 class Page
+  include Error_handling
   visited_pages = []
+  @test = nil # for example purposes.
 
   def initialize(page_title)
     self.set_page(page_title)
@@ -26,7 +29,14 @@ class Page
 end
 
 class InterfaceMachine
+
   puts page = Page.new(Input.new.get_input)
-  page.analyze_page ## put the if logic in!!
-  # tell_mw
+  while true do
+    page.h_nil
+    # page.analyze_page ## put the if logic in!!
+    # tell_mw
+  end
+
+  rescue NillyException
+  puts "hello sweetie"
 end
